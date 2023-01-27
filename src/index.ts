@@ -13,6 +13,13 @@ class App {
     this.middlewares();
     this.routes();
   }
+
+  private middlewares(): void {
+    this.express.set("views", path.join(__dirname, "views"));
+    this.express.set("view engine", "ejs");
+    this.express.use(express.json());
+    this.express.use(cors());
+  }
 }
 
 export default new App().express;
