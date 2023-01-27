@@ -4,3 +4,7 @@ import path from "path";
 
 import routes from "./routes";
 
+class App {
+}
+
+export default new App().express;
