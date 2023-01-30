@@ -1,4 +1,23 @@
+body {
+  background-color: #181c1f;
+}
+
+#text {
+  color: #ffffff;
+}
+
 #raw-text {
   height: 220px;
   width: 100%;
+  resize: vertical;
+  background-color: #22272e;
+  color: #ffffff;
+}
+
+#encoded {
+  height: 220px;
+  width: 100%;
+  resize: vertical;
+  background-color: #22272e;
+  color: #ffffff;
 }
