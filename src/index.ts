@@ -17,6 +17,7 @@ class App {
   private middlewares(): void {
     this.express.set("views", path.join(__dirname, "views"));
     this.express.set("view engine", "ejs");
+    this.express.use('/public', express.static(path.join(__dirname, 'public')));
     this.express.use(express.json());
     this.express.use(cors());
   }
