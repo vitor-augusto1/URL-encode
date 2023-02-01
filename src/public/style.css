@@ -8,7 +8,7 @@ body {
 
 #raw-text {
   height: 220px;
-  width: 100%;
+  width: 99%;
   resize: vertical;
   background-color: #22272e;
   color: #ffffff;
@@ -16,7 +16,7 @@ body {
 
 #encoded {
   height: 220px;
-  width: 100%;
+  width: 99%;
   resize: vertical;
   background-color: #22272e;
   color: #ffffff;
