@@ -5,9 +5,9 @@ import UrlEncodingController from "./controllers/UrlEncodingController";
 const routes = Router();
 
 routes.get("/", (req, res) => {
-  res.render("index");
+  res.sendFile(path.join(__dirname, 'views/index.html'));
 })
 
-routes.get("/encode", UrlEncodingController.encode)
+routes.post("/encode", UrlEncodingController.encode)
 
 export default routes;
