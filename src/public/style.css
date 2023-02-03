@@ -14,6 +14,9 @@ body {
   resize: vertical;
   background-color: #22272e;
   color: #ffffff;
+  border-color: #3937cd;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 #encoded {
@@ -22,4 +25,11 @@ body {
   resize: vertical;
   background-color: #22272e;
   color: #ffffff;
+  border-color: #3937cd;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.container-el {
+  padding-top: 20px;
 }
