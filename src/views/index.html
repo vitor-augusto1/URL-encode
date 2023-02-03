@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/public/style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <form action="/encode" method="post" id="urlEncodeForm">
+        <label for="raw-text" id="text">Text to encode</label><br>
+        <textarea name="raw-text" id="raw-text"></textarea><br><br>
+        <button type="submit">Encode</button>
+        <button>Copy</button>
+        <button>Clear</button>
+        <br><br>
+      </form>
+      <label for="encoded" id="text">Encoded text</label><br>
+      <textarea name="encoded" id="encoded"></textarea><br><br>
+    </div>
+  </body>
+  <script>
+    const formEl = document.querySelector("#urlEncodeForm");
+    formEl.addEventListener("submit", event => {
+      event.preventDefault();
+      const formData = new FormData(formEl);
+      const data = Object.fromEntries(formData);
+
+      fetch("/encode", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(response => { return response.json() })
+        .then(success => console.log(success.success))
+        .catch(error => { console.log(error) });
+    });
+  </script>
+</html>
