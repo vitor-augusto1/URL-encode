@@ -4,6 +4,8 @@ body {
 
 #text {
   color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: large;
 }
 
 #raw-text {
