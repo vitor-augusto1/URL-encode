@@ -30,19 +30,22 @@
       event.preventDefault();
       const formData = new FormData(formEl);
       const data = Object.fromEntries(formData);
+      const thereIsTextToEncode = data['raw-text'] != ''
+      if (thereIsTextToEncode) {
+        fetch("/encode", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).then(response => { return response.json() })
+          .then(success => { 
+            const textArea = document.getElementById("encoded");
+            textArea.value = success.success
+          })
+          .catch(error => { console.log(error) });
+      }
 
-      fetch("/encode", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      }).then(response => { return response.json() })
-        .then(success => { 
-          const textArea = document.getElementById("encoded");
-          textArea.value = success.success
-        })
-        .catch(error => { console.log(error) });
     });
   </script>
 </html>
