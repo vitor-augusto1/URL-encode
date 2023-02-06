@@ -2,6 +2,10 @@ body {
   background-color: #181c1f;
 }
 
+.title-h1 {
+  color: #ffffff;
+}
+
 #text {
   color: #ffffff;
   font-family: Arial, sans-serif;
@@ -31,5 +35,11 @@ body {
 }
 
 .container-el {
-  padding-top: 20px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.hr-line {
+  border-top: 1px solid #333380;
+  padding-bottom: 35px;
 }
