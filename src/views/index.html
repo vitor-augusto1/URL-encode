@@ -16,8 +16,8 @@
         <form action="/encode" method="post" id="urlEncodeForm">
           <label for="raw-text" id="text">Text to encode</label><br>
           <textarea name="raw-text" id="raw-text"></textarea><br>
-          <button type="submit" class="btn btn-success">Encode</button>
-          <button type="button" class="btn btn-warning" onclick="clearText(document)">Clear</button>
+          <button type="submit" class="btn btn-success" onclick="scrollToElement(document, 'encoded')">Encode</button>
+          <button type="button" class="btn btn-warning" onclick="clearText(document); scrollToElement(document, 'text');">Clear</button>
           <br><br>
         </form>
         <label for="encoded" id="text" >Encoded text</label><br>
