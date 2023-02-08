@@ -46,7 +46,7 @@
             const textArea = document.getElementById("encoded");
             textArea.value = success.success
           })
-          .catch(error => { console.log(error) });
+          .catch(error => { alert("An error occurred while encoding the URL. Please try again later."); });
       }
 
     });
