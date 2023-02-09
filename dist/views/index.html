@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/style.css">
+    <script src="/public/main.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="d-flex align-items-center justify-content-center">
+      <div style="width: 75%; height: 88%;" class="container-el">
+        <h1 class="text-center title-h1" id="h1-title">URL encoder</h1>
+        <hr class="hr-line">
+        <form action="/encode" method="post" id="urlEncodeForm">
+          <label for="raw-text" id="text">Text to encode</label><br>
+          <textarea name="raw-text" id="raw-text"></textarea><br>
+          <button type="submit" class="btn btn-success" onclick="scrollToElement(document, 'encoded')">Encode</button>
+          <button type="button" class="btn btn-warning" onclick="clearText(document); scrollToElement(document, 'h1-title');">Clear</button>
+          <br><br>
+        </form>
+        <label for="encoded" id="text" >Encoded text</label><br>
+        <textarea name="encoded" id="encoded"></textarea><br>
+        <button type="button" class="btn btn-primary" onclick="copyText(document)">Copy</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const formEl = document.querySelector("#urlEncodeForm");
+    formEl.addEventListener("submit", event => {
+
+      event.preventDefault();
+      const formData = new FormData(formEl);
+      const data = Object.fromEntries(formData);
+      const thereIsTextToEncode = data['raw-text'] != ''
+      if (thereIsTextToEncode) {
+        fetch("/encode", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).then(response => { return response.json() })
+          .then(success => { 
+            const textArea = document.getElementById("encoded");
+            textArea.value = success.success
+          })
+          .catch(error => { alert("An error occurred while encoding the URL. Please try again later."); });
+      }
+
+    });
+  </script>
+</html>
