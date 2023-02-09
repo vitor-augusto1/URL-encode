@@ -31,7 +31,7 @@ To set up a local development environment for this project:
 
 1. Clone this repository to your local machine.
 2. Run `npm install` to install the dependencies.
-3. Run `node dist/server.js` to start the development server.
+3. Run `npx ts-node src/server.ts` to start the development server.
 4. Navigate to `http://localhost:3333` in your browser to see the application.
 
 ## License
