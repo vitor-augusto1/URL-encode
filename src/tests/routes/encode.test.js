@@ -57,3 +57,16 @@ test("Should return 200 status code on successful encode", function () { return 
         }
     });
 }); });
+test("Should return the equivalent encoded URL", function () { return __awaiter(void 0, void 0, void 0, function () {
+    var response, encodedURL;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, requestAPI()];
+            case 1:
+                response = _a.sent();
+                encodedURL = encodeURIComponent("http://localhost:3333");
+                expect(response.data).toStrictEqual({ success: encodedURL });
+                return [2 /*return*/];
+        }
+    });
+}); });
