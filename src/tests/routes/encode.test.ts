@@ -9,3 +9,7 @@ const requestAPI = async () => {
   return response;
 }
 
+test("Should return 200 status code on successful encode", async () => {
+  const response = await requestAPI();
+  expect(response.status).toBe(200);
+})
